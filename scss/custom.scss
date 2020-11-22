@@ -1,0 +1,201 @@
+$button-color:#f48024;
+$nav-color:#fafafb;
+$button-text-color:white;
+$font-style:'Tahoma';
+
+@mixin flexStyle($orientation) {
+    display: flex;
+    flex-direction: $orientation;
+    align-items: center;
+}
+
+body{
+    font-family: $font-style;
+    margin: 0px;
+    @media screen and (max-width:375px) {
+        .header{
+            height: 50px;
+            background-color: $nav-color;
+            @include flexStyle(row);
+            // padding: top right bottom left;
+            padding: 0px 4px 0px 4px;
+            justify-content: space-between;
+            // sticky means content has scrollable and header is stable...
+            position: sticky; 
+            top: 0px;
+            .headerLeft{
+                @include flexStyle(row);
+                .sandwichCont{
+                    img{
+                        width: 20px;
+                        margin-left: 5px;
+                    }
+                }
+                .iconCont{
+                    img{
+                        width: 45px;
+                    }
+                }
+                .iconContBig{
+                    img{
+                        display: none;
+                    }
+                }
+                .buttonCont{
+                    .navButtonwhite1{
+                        display: none;
+                    }
+                    .navButtonWhite{
+                        display: none;
+                    }
+                    .navButton{
+                        background-color: $button-color;
+                        color: $button-text-color;
+                        border-radius: 20px;
+                        padding: 8px;
+                        font-size: 0.6rem;
+                    }
+                }
+            }
+            .headerRight{
+              @include flexStyle(row);
+                .searchCont{
+                    img{
+                        width: 25px;
+                    }
+                    input{
+                        // hide search textbox..
+                        display: none;
+                    }
+                }
+                .buttonRightCont{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    .squareButtonFilled{
+                        background-color: #e1ecf4;
+                        color:#39739d;
+                        border-radius: 3px;
+                        padding: 8px;
+                        font-size: 0.8rem;
+                        border: 1px solid #7aa7c7;
+                    }
+                    .squareButtonEmpty{
+                        background-color:#0095ff;
+                        color: #ffffff;
+                        border-radius: 3px;
+                        padding: 8px;
+                        font-size: 0.8rem;
+                        border: 1px solid #7aa7c7;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width:376px) {
+        .header{
+            height: 50px;
+            background-color: $nav-color;
+            @include flexStyle(row);
+            // padding: top right bottom left;
+            padding: 0px 50px 0px 50px;
+            justify-content: space-between;
+            // sticky means content has scrollable and header is stable...
+            position: sticky; 
+            top: 0px;
+            .headerLeft{
+                flex-basis: 40%;
+                @include flexStyle(row);
+                .sandwichCont{
+                    img{
+                        width: 20px;
+                        margin-left: 5px;
+                    }
+                }
+                .iconCont{
+                    img{
+                        display: none;
+                    }
+                }
+                .iconContBig{
+                    img{
+                        width: 170px;
+                        margin-left: 30px;
+                    }
+                }
+                .buttonCont{
+                    justify-content: space-evenly;
+                    flex-grow: 1;
+                    @include flexStyle(row);
+                    .navButton{
+                        background-color: $button-color;
+                        color: $button-text-color;
+                        border-radius: 20px;
+                        padding: 8px;
+                        font-size: 0.8rem;
+                    }
+                    .navButtonwhite1{
+                        &:hover{
+                            background-color: grey;
+                            color: white;
+                            border-radius: 20px;
+                            padding: 8px;
+                            font-size: 0.8rem;
+                        }
+                    }
+                    .navButtonWhite{
+                        &:hover{
+                            background-color: grey;
+                            color: white;
+                            border-radius: 20px;
+                            padding: 8px;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+            .headerRight{
+                flex-basis: 60%;
+               @include flexStyle(row);
+                .searchCont{
+                    flex-basis: 84%;
+                    img{
+                        display: none;
+                    }
+                    input{
+                        height: 30px;
+                        border: 1px solid #333;
+                        border-radius: 3px;
+                        width: 100%;
+                    }
+                }
+                .buttonRightCont{
+                    flex-basis: 16%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    .squareButtonFilled{
+                        background-color: #e1ecf4;
+                        color:#39739d;
+                        border-radius: 3px;
+                        padding: 8px;
+                        font-size: 0.8rem;
+                        border: 1px solid #7aa7c7;
+                    }
+                    .squareButtonEmpty{
+                        background-color:#0095ff;
+                        color: #ffffff;
+                        border-radius: 3px;
+                        padding: 8px;
+                        font-size: 0.8rem;
+                        border: 1px solid #7aa7c7;
+                    }
+                }
+            }
+        }
+    }
+    .backImage{
+        width: 100%;
+        height: 100%;
+    }
+}
